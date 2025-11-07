@@ -21,7 +21,7 @@ jobs:
 
       - name: SSH to VPS and deploy
         run: |
-          TAG=${{ needs.build-and-push.outputs.tag }}
+          TAG=staging
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519_frontend ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << EOF
             cd /home/${{ secrets.VPS_USER }}/frontend/$TAG
             docker compose pull
